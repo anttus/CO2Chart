@@ -1,0 +1,29 @@
+{
+  "name": "co2chart",
+  "version": "1.0.0",
+  "description": "A web app that shows different countires CO2 emissions in proportion to population with the data of worldbank.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anttus/CO2Chart.git"
+  },
+  "author": "Anttu Suhonen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anttus/CO2Chart/issues"
+  },
+  "homepage": "https://github.com/anttus/CO2Chart#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "fontawesome": "^5.6.3",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  }
+}

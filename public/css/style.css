@@ -1,0 +1,27 @@
+#navBar {
+    display: block;
+}
+
+#searchBtn {
+    width: 15%;
+    padding-left: 4%;
+}
+
+#searchInput {
+    width: 85%;
+}
+
+#searchForm {
+    margin-left: 10px;
+    margin-top: 10px !important;
+}
+
+@media (max-width: 576px) {
+    #searchInput {
+        margin-right: 5px;
+    }
+}
+
+.title {
+    margin: 10px;
+}

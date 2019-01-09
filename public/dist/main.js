@@ -9,14 +9,10 @@ $("#searchBtn").click(function(){
     } else {
         var selectedCountry = $("#searchInput").val();
         var selectedCountryCode = countryCodes[countries.indexOf(selectedCountry)];
+        $("#countryLabel").text(selectedCountry);
         getEmissions(selectedCountryCode);
-        // $("#searchInput").val('');
     }
 });
-
-function checkCountryDataExists() {
-
-}
 
 function getEmissions(countryCode) {
     if ($("#checkPerCapita").is(':checked')) {
@@ -24,14 +20,17 @@ function getEmissions(countryCode) {
     } else {
         getEmissionsKilotons(countryCode);
     }
+    $("#chartContainer").show();
 }
 
+// Shows an alert div for a while
 function inputAlert(alertText) {
     $("#inputAlert").text(alertText);
     $("#inputAlert").show();
     setTimeout(function () { $("#inputAlert").hide() }, 1200);
 }
 
+// Highlights the input text when clicking on it
 $("#searchInput").focus(function() {
     $(this).select();
 }); 

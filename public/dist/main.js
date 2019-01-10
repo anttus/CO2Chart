@@ -38,7 +38,10 @@ $("#searchInput").focus(function() {
 
 // Tab handler
 function openTab(tabName) {
-    var allTabs = ["tab1", "tab2", "tab3"];
+    var allTabs = [];
+    $("#tabContainer > div").each(function() {
+        allTabs.push($(this).attr('id'));
+    });
 
     $('#' + tabName).show();
     var closedTabs = allTabs.filter(tab => tab != tabName); // Filter out all but the active tab

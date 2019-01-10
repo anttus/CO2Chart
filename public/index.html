@@ -34,25 +34,27 @@
     </div>
     <div id="inputAlert" class="alert alert-warning" role="alert" style="display:none"></div>
 
-    <div id="tab1" class="tabcontent">
-        <div class="form-check" id="perCapitaContainer">
-            <input type="checkbox" class="form-check-input" id="checkPerCapita">
-            <label class="form-check-label" for="checkPerCapita">Per capita</label>
+    <div id="tabContainer">
+        <div id="tab1" class="tabcontent">
+            <div class="form-check" id="perCapitaContainer">
+                <input type="checkbox" class="form-check-input" id="checkPerCapita">
+                <label class="form-check-label" for="checkPerCapita">Per capita</label>
+            </div>
+            <div id="graphDiv">
+                <label id="countryLabel"></label>
+                <p id="helpParagraph">Search for a country to see its CO2 emissions.
+                    <br />(Kilotons by default or megatons per capita by checking the box above.)</p>
+                <canvas id="chartContainer" style="display:none"></canvas>
+            </div>
         </div>
-        <div id="graphDiv">
-            <label id="countryLabel"></label>
-            <p id="helpParagraph">Search for a country to see its CO2 emissions.
-                <br />(Kilotons by default or megatons per capita by checking the box above.)</p>
-            <canvas id="chartContainer" style="display:none"></canvas>
-        </div>
-    </div>
-
-    <div id="tab2" class="tabcontent">
         
-    </div>
-
-    <div id="tab3" class="tabcontent">
-
+        <div id="tab2" class="tabcontent">
+        
+        </div>
+        
+        <div id="tab3" class="tabcontent">
+        
+        </div>
     </div>
 
 </body>

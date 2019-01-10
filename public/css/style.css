@@ -25,8 +25,10 @@
 }
 
 .title {
-    margin: 10px;
+    width: fit-content;
+    margin: auto;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 #graphDiv {
@@ -138,4 +140,14 @@ input[type=submit] {
   display: none;
   padding: 6px 12px;
   border-top: none;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

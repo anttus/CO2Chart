@@ -21,9 +21,9 @@
     <h1 class="title">CO<sub>2</sub>-Emissions</h1>
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'tab1')">Search</button>
-        <button class="tablinks" onclick="openTab(event, 'tab2')">Compare</button>
-        <button class="tablinks" onclick="openTab(event, 'tab3')">Top</button>
+        <button class="tablinks" onclick="openTab('tab1')">Search</button>
+        <button class="tablinks" onclick="openTab('tab2')">Compare</button>
+        <button class="tablinks" onclick="openTab('tab3')">Top</button>
     </div>
 
     <div id="searchContainer" class="autocomplete input-group form-inline my-2 my-lg-0">
@@ -41,13 +41,14 @@
         </div>
         <div id="graphDiv">
             <label id="countryLabel"></label>
-            <p id="helpParagraph">Search for a country to see its CO2 emissions.</p>
+            <p id="helpParagraph">Search for a country to see its CO2 emissions.
+                <br />(Kilotons by default or megatons per capita by checking the box above.)</p>
             <canvas id="chartContainer" style="display:none"></canvas>
         </div>
     </div>
 
     <div id="tab2" class="tabcontent">
-
+        
     </div>
 
     <div id="tab3" class="tabcontent">

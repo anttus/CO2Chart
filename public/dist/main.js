@@ -37,28 +37,17 @@ $("#searchInput").focus(function() {
 }); 
 
 // Tab handler
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
+function openTab(tabName) {
+    var allTabs = ["tab1", "tab2", "tab3"];
 
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+    $('#' + tabName).show();
+    var closedTabs = allTabs.filter(tab => tab != tabName); // Filter out all but the active tab
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    closedTabs.forEach(element => {
+        $('#'+element).hide();
+    });
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-
-    if (tabName == 'tab3') {
-        $("#searchContainer").hide();
-    } else {
-        $("#searchContainer").show();
-    }
+    if (tabName == 'tab3') $("#searchContainer").hide();
+    else $("#searchContainer").show();
 }
-openTab(event, 'tab1'); // Default tab
+openTab('tab1'); // Default tab

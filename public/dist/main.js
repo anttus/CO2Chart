@@ -7,6 +7,7 @@ $("#searchBtn").click(function(){
     if ($.inArray($("#searchInput").val(), countries) == '-1') {
         inputAlert("The value can't be found.");
     } else {
+        $("#helpParagraph").hide();
         var selectedCountry = $("#searchInput").val();
         var selectedCountryCode = countryCodes[countries.indexOf(selectedCountry)];
         $("#countryLabel").text(selectedCountry);
@@ -34,3 +35,30 @@ function inputAlert(alertText) {
 $("#searchInput").focus(function() {
     $(this).select();
 }); 
+
+// Tab handler
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    if (tabName == 'tab3') {
+        $("#searchContainer").hide();
+    } else {
+        $("#searchContainer").show();
+    }
+}
+openTab(event, 'tab1'); // Default tab

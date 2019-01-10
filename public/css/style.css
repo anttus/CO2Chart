@@ -42,6 +42,12 @@
   font-size: 15px;
   padding: 5px;
   padding-left: 10px;
+  width: fit-content;
+}
+
+#helpParagraph {
+  text-align: center;
+  color: gray;
 }
 
 .yearInput {
@@ -96,4 +102,40 @@ input[type=submit] {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important; 
   color: #ffffff; 
+}
+
+
+/* Tabs */
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+  outline: none;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
 }

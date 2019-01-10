@@ -18,24 +18,42 @@
 
 <body id="content">
 
-    <h1 class="title">CO<sub>2</sub>-Emissions graph</h1>
+    <h1 class="title">CO<sub>2</sub>-Emissions</h1>
 
-    <div class="autocomplete input-group form-inline my-2 my-lg-0">
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'tab1')">Search</button>
+        <button class="tablinks" onclick="openTab(event, 'tab2')">Compare</button>
+        <button class="tablinks" onclick="openTab(event, 'tab3')">Top</button>
+    </div>
+
+    <div id="searchContainer" class="autocomplete input-group form-inline my-2 my-lg-0">
         <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Country" aria-label="Search">
         <span class="input-group-btn">
-            <button type="button" id="searchBtn" class="btn btn-outline-success my-2 my-sm-0"><i class="fas fa-search"></i></button>
+            <button type="button" id="searchBtn" class="btn btn-outline-success my-sm-0"><i class="fas fa-search"></i></button>
         </span>
-        <div id="inputAlert" class="alert alert-warning" role="alert" style="display:none"></div>
+    </div>
+    <div id="inputAlert" class="alert alert-warning" role="alert" style="display:none"></div>
+
+    <div id="tab1" class="tabcontent">
+        <div class="form-check" id="perCapitaContainer">
+            <input type="checkbox" class="form-check-input" id="checkPerCapita">
+            <label class="form-check-label" for="checkPerCapita">Per capita</label>
+        </div>
+        <div id="graphDiv">
+            <label id="countryLabel"></label>
+            <p id="helpParagraph">Search for a country to see its CO2 emissions.</p>
+            <canvas id="chartContainer" style="display:none"></canvas>
+        </div>
     </div>
 
-    <div class="form-check" id="perCapitaContainer">
-        <input type="checkbox" class="form-check-input" id="checkPerCapita">
-        <label class="form-check-label" for="checkPerCapita">Per capita</label>
+    <div id="tab2" class="tabcontent">
+
     </div>
-    <div id="graphDiv">
-        <label id="countryLabel"></label>
-        <canvas id="chartContainer" style="display:none"></canvas>
+
+    <div id="tab3" class="tabcontent">
+
     </div>
+
 </body>
 
 <script src="../node_modules/chart.js/dist/Chart.min.js"></script>

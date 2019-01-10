@@ -11,6 +11,7 @@ $("#searchBtn").click(function(){
         var selectedCountry = $("#searchInput").val();
         var selectedCountryCode = countryCodes[countries.indexOf(selectedCountry)];
         $("#countryLabel").text(selectedCountry);
+        destroyChart();
         getEmissions(selectedCountryCode);
     }
 });

@@ -19,9 +19,19 @@
   }
 }
 
-#perCapitaContainer {
+#settingsContainer {
     margin: 10px;
-    font-size: 20px
+    font-size: 17px;
+}
+
+#fromYear, #toYear {
+    height: 1.3em;
+    width: 4.5em;
+    border-radius: 4px;
+}
+
+#yearRangeContainer {
+  margin-left: 25px;
 }
 
 .title {

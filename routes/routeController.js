@@ -1,5 +1,5 @@
-const ctx = document.getElementById("chartContainer").getContext('2d');
-var chart;
+let chart;
+const ctx = $("#chartContainer")[0].getContext('2d');
 
 function getEmissionsKilotons(countryCode) {
     let url = "http://api.worldbank.org/v2/countries/" + countryCode + "/indicators/EN.ATM.CO2E.KT?format=json";
@@ -25,13 +25,19 @@ function getEmissionsPerCapita(countryCode) {
 
 function showResults(result, label) {
     destroyChart();
-    let emissionsPerCapita = [];
-    let years = [];
+    let yearFrom = $("#fromYear").val();
+    let yearTo = $("#toYear").val();
+    console.log(yearFrom);
+    console.log(yearTo);
+    let results = [];
     result[1].forEach(e => {
-        emissionsPerCapita.push(e["value"]);
-        years.push(e["date"]);
+        if (e['value'] != null) {
+            if (e['date'] >= yearFrom && e['date'] <= yearTo) results.push(e);
+            else if (yearFrom == '') results.push(e);
+            else if (yearTo == '') results.push(e);
+        }
     });
-    chart = createGraph(ctx, emissionsPerCapita.reverse(), years.reverse(), label);
+    chart = createGraph(ctx, results, label);
 }
 
 function destroyChart() {

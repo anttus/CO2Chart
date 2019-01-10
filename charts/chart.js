@@ -1,4 +1,8 @@
-function createGraph(ctx, dataArray, yearArray, label) {
+
+function createGraph(ctx, results, label) {
+    let yearArray = [];
+    let dataArray = [];
+    parseResults(results, yearArray, dataArray);
     return new Chart(ctx, {
         type: 'line',
         data: {
@@ -24,6 +28,13 @@ function createGraph(ctx, dataArray, yearArray, label) {
                 }]
             }
         }
+    });
+}
+
+function parseResults(results, yearArray, dataArray) {
+    results.reverse().forEach(e => {
+        yearArray.push(e['date']);
+        dataArray.push(e['value']);
     });
 }
 

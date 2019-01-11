@@ -16,4 +16,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('view engine', 'jade');
 
-app.listen(port, () => console.log('API listening on port ' + port))
+app.listen(port, () => console.log('API listening on port ' + port));

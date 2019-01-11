@@ -25,16 +25,10 @@ function getEmissionsPerCapita(countryCode) {
 
 function showResults(result, label) {
     destroyChart();
-    let yearFrom = $("#fromYear").val();
-    let yearTo = $("#toYear").val();
-    console.log(yearFrom);
-    console.log(yearTo);
     let results = [];
     result[1].forEach(e => {
         if (e['value'] != null) {
-            if (e['date'] >= yearFrom && e['date'] <= yearTo) results.push(e);
-            else if (yearFrom == '') results.push(e);
-            else if (yearTo == '') results.push(e);
+            if (e['date'] >= slider.noUiSlider.get()[0].slice(0, 4) && e['date'] <= slider.noUiSlider.get()[1].slice(0, 4)) results.push(e);
         }
     });
     chart = createGraph(ctx, results, label);

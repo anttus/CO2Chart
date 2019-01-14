@@ -43,7 +43,7 @@
 }
 
 #graphDiv {
-    margin-top: 50px;
+  
 }
 
 #countryLabel {
@@ -63,8 +63,8 @@
   color: gray;
 }
 
-.yearInput {
-  width: 60px;
+#yearIndicator {
+  margin-top: 10px;
 }
 
 /* Autocomplete */

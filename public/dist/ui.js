@@ -2,11 +2,17 @@ const countries = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
 const countryCodes = ["AF", "AL", "DZ", "AS", "AD", "AO", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BA", "BW", "BR", "BN", "BG", "BF", "BI", "CV", "KH", "CM", "CA", "KY", "CF", "TD", "CL", "CN", "CO", "KM", "CG", "CD", "CR", "CI", "HR", "CU", "CW", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "SZ", "ET", "FO", "FJ", "FI", "FR", "PF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GU", "GT", "GN", "GW", "GY", "HT", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MR", "MU", "MX", "FM", "MD", "MC", "MN", "ME", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "MP", "NO", "OM", "PK", "PW", "PA", "PG", "PY", "PE", "PH", "PL", "PT", "PR", "QA", "RO", "RU", "RW", "KN", "LC", "MF", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SE", "CH", "SY", "TJ", "TZ", "TH", "TL", "TG", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UY", "UZ", "VU", "VE", "VN", "VI", "YE", "ZM", "ZW"]
 let slider = document.getElementById('yearSlider');
 let curYear = (new Date).getFullYear();
+let searchButton = document.getElementById("searchBtn");
+let searchInput = document.getElementById("searchInput");
+let chart;
 
 autocomplete(document.getElementById("searchInput"), countries);
 
-$("#searchBtn").click(function(){
-    checkSearch();
+// Search field and button events
+searchButton.addEventListener("click", function () { checkSearch(); });
+searchInput.addEventListener("keyup", function (event) {
+    event.preventDefault();
+    if (event.keyCode === 13) searchButton.click();
 });
 
 function checkSearch() {
@@ -39,11 +45,6 @@ function inputAlert(alertText) {
     setTimeout(function () { $("#inputAlert").hide() }, 1200);
 }
 
-// Highlights the input text when clicking on it
-$("#searchInput").focus(function() {
-    $(this).select();
-}); 
-
 // Tab handler
 function openTab(tabName) {
     var allTabs = [];
@@ -63,34 +64,17 @@ function openTab(tabName) {
 }
 openTab('tab1'); // Default tab
 
-// Slider
-function createYearSlider() {
-    noUiSlider.create(slider, {
-        start: [1968, curYear],
-        step: 1,
-        behaviour: 'drag snap',
-        connect: true,
-        range: {
-            'min': [1968],
-            'max': [curYear]
+function showResults(result, label) {
+    destroyChart();
+    let results = [];
+    result[1].forEach(e => {
+        if (e['value'] != null) {
+            if (e['date'] >= slider.noUiSlider.get()[0].slice(0, 4) && e['date'] <= slider.noUiSlider.get()[1].slice(0, 4)) results.push(e);
         }
     });
-    sliderOnSlide();
-    sliderAfterSlide();
-    $("#yearIndicator").show();
+    chart = createGraph(ctx, results, label);
 }
 
-function sliderOnSlide() {
-    slider.noUiSlider.on('update', function (value) {
-        let yearFrom = value[0].slice(0, 4);
-        let yearTo = value[1].slice(0, 4);
-        $("#yearFrom").text(yearFrom);
-        $("#yearTo").text(yearTo);
-    });
-}
-
-function sliderAfterSlide() {
-    slider.noUiSlider.on('end', function(value) {
-        checkSearch();
-    });
+function destroyChart() {
+    if (chart != null) chart.destroy();
 }

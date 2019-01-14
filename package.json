@@ -18,6 +18,7 @@
   "homepage": "https://github.com/anttus/CO2Chart#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
+    "async": "^2.6.1",
     "chart.js": "^2.7.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",

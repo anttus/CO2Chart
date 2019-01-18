@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
@@ -29,7 +29,8 @@
     </div>
 
     <div id="searchContainer" class="autocomplete input-group form-inline my-2 my-lg-0">
-        <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Country" aria-label="Search" onclick="this.setSelectionRange(0, this.value.length)">
+        <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Country" aria-label="Search"
+            onclick="this.setSelectionRange(0, this.value.length)">
         <span class="input-group-btn">
             <button type="button" id="searchBtn" class="btn btn-outline-success my-sm-0"><i class="fas fa-search"></i></button>
         </span>
@@ -41,6 +42,8 @@
             <div class="form-check" id="settingsContainer">
                 <input type="checkbox" class="form-check-input" id="checkPerCapita">
                 <label class="form-check-label" for="checkPerCapita">Per capita</label>
+                <div><input type="checkbox" class="form-check-input" id="chartType">
+                    <label class="form-check-label" for="chartType">Bar chart</label></div>
                 <div id="yearSlider"></div>
                 <div id="yearIndicator" style="display:none">Years: <b><span id="yearFrom"></span></b> - <b><span id="yearTo"></span></b></div>
             </div>
@@ -51,13 +54,13 @@
                 <canvas id="chartContainer" style="display:none"></canvas>
             </div>
         </div>
-        
+
         <div id="tab2" class="tabcontent">
-        
+
         </div>
-        
+
         <div id="tab3" class="tabcontent">
-        
+
         </div>
     </div>
 

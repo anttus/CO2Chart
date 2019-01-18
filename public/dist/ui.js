@@ -5,6 +5,9 @@ let curYear = (new Date).getFullYear();
 let searchButton = document.getElementById("searchBtn");
 let searchInput = document.getElementById("searchInput");
 let chart;
+let transparencyBackground = ', 0.2)';
+let chartColor = colors[Math.floor(Math.random() * colors.length)] + transparencyBackground;
+let chartType = getChartType();
 
 autocomplete(document.getElementById("searchInput"), countries);
 
@@ -30,11 +33,8 @@ function checkSearch() {
 }
 
 function getEmissions(countryCode) {
-    if ($("#checkPerCapita").is(':checked')) {
-        getEmissionsPerCapita(countryCode);
-    } else {
-        getEmissionsKilotons(countryCode);
-    }
+    if ($("#checkPerCapita").is(':checked')) getEmissionsPerCapita(countryCode);
+    else getEmissionsKilotons(countryCode);
     $("#chartContainer").show();
 }
 
@@ -72,9 +72,14 @@ function showResults(result, label) {
             if (e['date'] >= slider.noUiSlider.get()[0].slice(0, 4) && e['date'] <= slider.noUiSlider.get()[1].slice(0, 4)) results.push(e);
         }
     });
-    chart = createGraph(ctx, results, label);
+    chart = createGraph(ctx, results, label, getChartType(), chartColor);
 }
 
 function destroyChart() {
     if (chart != null) chart.destroy();
+}
+
+function getChartType() {
+    if ($("#chartType").is(':checked')) return 'bar';
+    else return 'line';
 }
